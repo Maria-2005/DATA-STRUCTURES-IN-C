@@ -1,47 +1,50 @@
-#include <stdio.h>
+#include<stdio.h>
 void main()
 {
- int i,j,n,temp,time=0,space;
- time++;
- printf("Enter number of elements:");
- scanf("%d",&n);
- time=time+2;
- int A[n];
- printf("Enter elements:\n");
- time++;
- for(i=0;i<n;i++)
+ int i,j,m=1,r,c;
+ printf("Enter dimensions of the matrix");
+ scanf("%d%d",&r,&c);
+ int a[20][20],b[20][3];
+ printf("Enter elememts");
+ for(i=0;i<r;i++)
  {
-  printf("Enter element %d:",i+1);
-  scanf("%d",&A[i]);
-  time=time+3;
+  for(j=0;j<c;j++)
+  {
+   scanf("%d",&a[i][j]);
+  }
  }
- time++;
- for(i=1;i<n;i++)
+ printf("Entered matrix\n");
+ for(i=0;i<r;i++)
  {
-  temp=A[i];
-  j=i-1;
-  time=time+3;
-  while(j>=0 && A[j]>temp)
+  for(j=0;j<c;j++)
   {
-   A[j+1]=A[j];
-   time=time+2;
-   j--;
+   printf("%d\t",a[i][j]);
   }
-  time++;
-  A[j+1]=temp;
-  time++;
-  }
-  time++;
-  printf("Sorted array is:\n");
-  time++;
-  for(i=0;i<n;i++)
-  {
-   time++;
-   printf("%d\t",A[i]);
-   time++;
-  }
-  time++;
-  printf("\nSpace complexity=%d\n",24+(n*4));
-  time++;
-  printf("Time complexity=%d",time+1);
+  printf("\n");
  }
+ printf("Row\tColumn\tValue\n");
+ b[0][0]=i;
+ b[0][1]=j;
+ for(i=0;i<r;i++)
+ {
+  for(j=0;j<c;j++)
+  {
+   if(a[i][j]!=0)
+   {
+    b[m][0]=i;
+    b[m][1]=j;
+    b[m][2]=a[i][j];
+    m++;
+   }
+  }
+ }
+ b[0][2]=m-1;
+ for(i=0;i<m;i++)
+ {
+  for(j=0;j<3;j++)
+  {
+   printf("%d\t",b[i][j]);
+  }
+  printf("\n");
+ }
+}
