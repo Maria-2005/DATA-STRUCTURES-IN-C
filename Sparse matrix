@@ -23,8 +23,8 @@ void main()
   printf("\n");
  }
  printf("Row\tColumn\tValue\n");
- b[0][0]=i;
- b[0][1]=j;
+ b[0][0]=r;
+ b[0][1]=c;
  for(i=0;i<r;i++)
  {
   for(j=0;j<c;j++)
